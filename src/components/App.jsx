@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
 import { Section } from './Section/Section';
+import { Notification } from './Notification/Notification';
 import { GlobalStyle } from './GlobalStyle';
 
 export class App extends Component {
@@ -42,7 +43,7 @@ export class App extends Component {
             onLeaveFeedback={this.handleLeaveFeedback}
           />
         </Section>
-        {total > 0 ? (
+        {total > 0 ? ( // Перевірка, на відгуки
           <Section title="Statistics">
             <Statistics
               good={good}
@@ -54,7 +55,7 @@ export class App extends Component {
           </Section>
         ) : (
           <Section title="Statistics">
-            <p>No feedback given</p>
+            <Notification message="There is no feedback" />
           </Section>
         )}
       </div>
